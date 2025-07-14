@@ -52,7 +52,10 @@ This extension solves these pain points by reversing the key behavior to match w
 
 1. **Download the extension**
    ```bash
+   Download ZIP
+   or
    git clone https://github.com/deer-hunt/chat-key-changer.git
+   
    cd chat-key-changer
    ```
 
