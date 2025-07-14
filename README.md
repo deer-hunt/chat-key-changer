@@ -29,7 +29,7 @@ This extension solves these pain points by reversing the key behavior to match w
 - **Completely Free and No Dark Patterns**: No user registration, no premium features, no hidden costs. Unlike many Chrome extensions that lure users with basic features only to push paid upgrades, this extension provides all functionality completely free.
 
 
-## 🎯 Supported Services
+## 🎯 Supported AI Chat Services
 
 - **ChatGPT** (OpenAI)
 - **Claude** (Anthropic)
@@ -66,7 +66,7 @@ This extension solves these pain points by reversing the key behavior to match w
    - The extension should now appear in your extensions list
 
 4. **Start using**
-   - Visit any supported AI chat service
+   - Visit any supported AI chat service. e.g. [ChatGPT](https://chatgpt.com/)
    - The key behavior will be automatically swapped in input fields
 
 > 📖 **Need help with manual installation?** See Google's official guide: [Load an unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked)
