@@ -62,7 +62,7 @@ This extension solves these pain points by reversing the key behavior to match w
 
 3. **Load the extension**
    - Click "Load unpacked"
-   - Select the `chat-key-changer` folder
+   - Select the `src` folder
    - The extension should now appear in your extensions list
 
 4. **Start using**
@@ -99,7 +99,7 @@ Contributions are welcome! Here's how you can help:
 
 ### v1.0.0 (2025-07-14)
 
-- Initial release.
+- First release.
 
 
 ## 🔍 Privacy
