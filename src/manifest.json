@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Chat-Key-Changer",
+  "version": "1.0",
+  "description": "Swaps Enter and Shift+Enter key behavior in AI chat services for improved usability.",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://www.canva.com/*",
+    "https://github.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://gemini.google.com/*",
+    "https://poe.com/*",
+    "https://genspark.ai/*",
+    "https://www.genspark.ai/*",
+    "https://grok.com/*",
+    "https://x.ai/*",
+    "https://perplexity.ai/*",
+    "https://www.perplexity.ai/*",
+    "https://chat.deepseek.com/*",
+    "https://notion.so/*",
+    "https://www.notion.so/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://www.canva.com/*",
+        "https://github.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://gemini.google.com/*",
+        "https://poe.com/*",
+        "https://genspark.ai/*",
+        "https://www.genspark.ai/*",
+        "https://grok.com/*",
+        "https://x.ai/*",
+        "https://perplexity.ai/*",
+        "https://www.perplexity.ai/*",
+        "https://chat.deepseek.com/*",
+        "https://notion.so/*",
+        "https://www.notion.so/*"
+      ],
+      "js": ["chat-key-changer.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
