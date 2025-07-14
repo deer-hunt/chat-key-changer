@@ -1,6 +1,6 @@
 # Chat-Key-Changer
 
-![Logo](https://raw.githubusercontent.com/deer-hunt/chat-key-changer/main/images/logo.png)
+![Logo](./images/logo.png)
 
 "Chat-Key-Changer" is a Chrome extension that swaps Enter and Shift+Enter key behavior in AI chat services for improved usability.
 
