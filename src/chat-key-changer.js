@@ -72,7 +72,7 @@ class ChatKeyChanger {
             'grok': {
                 'service': 'grok',
                 'domains': ['grok.com', 'x.ai'],
-                'inputs': ['textarea'],
+                'inputs': ['div[contenteditable="true"]', 'textarea'],
                 'buttons': ['button[type="submit"][aria-label]'],
                 'bind': 0
             },
@@ -86,7 +86,7 @@ class ChatKeyChanger {
             'deepseek': {
                 'service': 'deepseek',
                 'domains': ['deepseek.com'],
-                'inputs': ['#chat-input'],
+                'inputs': ['div[contenteditable="true"]', 'textarea'],
                 'buttons': ['[type="file"] + [role="button"]'],
                 'bind': 0
             },
@@ -96,7 +96,29 @@ class ChatKeyChanger {
                 'inputs': ['.notion-assistant-writer-ui div[contenteditable="true"]'],
                 'buttons': ['.notion-assistant-writer-ui [role="button"]:has(.sendArrow)'],
                 'bind': 2
-            }
+            },
+            'notebooklm': {
+                'service': 'notebooklm',
+                'domains': ['notebooklm.google.com'],
+                'inputs': ['div[contenteditable="true"]', 'textarea'],
+                'buttons': ['button[type="submit"][aria-label]'],
+                'bind': 0
+            },
+            'firefly': {
+                'service': 'firefly',
+                'domains': ['firefly.adobe.com'],
+                'inputs': ['[data-testid="ch-prompt-container"]'],
+                'match': 'textarea',
+                'buttons': ['[data-testid="firefly-button-generate"]'],
+                'bind': 0
+            },
+            'midjourney': {
+                'service': 'midjourney',
+                'domains': ['midjourney.com'],
+                'inputs': ['div[contenteditable="true"]', 'textarea'],
+                'buttons': ['button.submit', 'button[type="submit"][aria-label]'],
+                'bind': 0
+            },
         };
 
         this.currentSite = null;
@@ -134,14 +156,14 @@ class ChatKeyChanger {
         return null;
     }
     applyKeySwapToSelector(selector) {
-        const elements = document.querySelectorAll(selector);
-
-        elements.forEach(element => {
-            if (!element.dataset.keyChanged) {
-                this.attachKeySwapListener(element);
-                element.dataset.keyChanged = '1';
-            }
-        });
+            const elements = document.querySelectorAll(selector);
+            
+            elements.forEach(element => {
+                if (!element.dataset.keyChanged) {
+                    this.attachKeySwapListener(element);
+                    element.dataset.keyChanged = '1';
+                }
+            });
     }
 
     /**
@@ -151,7 +173,22 @@ class ChatKeyChanger {
         const el = (this.currentSite.bind & 1)?window:element;
 
         el.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' && event.target == element && event.isTrusted) {
+            let matched = false;
+
+            if (this.currentSite.match){
+                const tel = event.composedPath()[0];
+
+                if (tel.matches(this.currentSite.match)){
+                    element = tel;
+                    matched = true;
+                }
+            }else{
+                if (event.target == element){
+                    matched = true;
+                }
+            }
+
+            if (event.key === 'Enter' && matched && event.isTrusted) {
                 event.preventDefault();
                 event.stopPropagation();
                 event.stopImmediatePropagation();
@@ -281,11 +318,12 @@ class ChatKeyChanger {
                     mutation.addedNodes.forEach((node) => {
                         if (node.nodeType === Node.ELEMENT_NODE) {
                             selectors.forEach(selector => {
-                                if (node.matches && node.matches(selector)) {
+                                const targetSelector = Array.isArray(selector) ? selector[0] : selector;
+                                if (node.matches && node.matches(targetSelector)) {
                                     this.applyKeySwapToSelector(selector);
                                 }
 
-                                const childElements = node.querySelectorAll && node.querySelectorAll(selector);
+                                const childElements = node.querySelectorAll && node.querySelectorAll(targetSelector);
                                 if (childElements && childElements.length > 0) {
                                     this.applyKeySwapToSelector(selector);
                                 }
@@ -309,7 +347,7 @@ class ChatKeyChanger {
         setInterval(() => {
             if (this.currentSite) {
                 const selectors = this.currentSite.inputs;
-
+                
                 selectors.forEach(selector => {
                     this.applyKeySwapToSelector(selector);
                 });

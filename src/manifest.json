@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Chat-Key-Changer",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Swaps Enter and Shift+Enter key behavior in AI chat services for improved usability.",
   "icons": {
     "16": "images/icon.png",
@@ -36,7 +36,10 @@
     "https://www.perplexity.ai/*",
     "https://chat.deepseek.com/*",
     "https://notion.so/*",
-    "https://www.notion.so/*"
+    "https://www.notion.so/*",
+    "https://notebooklm.google.com/*",
+    "https://firefly.adobe.com/*",
+    "https://www.midjourney.com/*"
   ],
   "content_scripts": [
     {
@@ -57,7 +60,10 @@
         "https://www.perplexity.ai/*",
         "https://chat.deepseek.com/*",
         "https://notion.so/*",
-        "https://www.notion.so/*"
+        "https://www.notion.so/*",
+        "https://notebooklm.google.com/*",
+        "https://firefly.adobe.com/*",
+        "https://www.midjourney.com/*"
       ],
       "js": ["chat-key-changer.js"],
       "run_at": "document_end"

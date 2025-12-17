@@ -33,16 +33,19 @@ This extension solves these pain points by reversing the key behavior to match w
 
 - **ChatGPT** (OpenAI)
 - **Claude** (Anthropic)
-- **Canva AI** (Canva)
+- **Gemini** (Google)
+- **NotebookLM** (Google)
 - **GitHub Copilot Chat** (Github)
 - **Microsoft Copilot** (Microsoft)
-- **Google Gemini** (Google)
-- **Poe** (Quora)
 - **Genspark** (MainFunc)
-- **Grok** (X.AI)
+- **Canva AI** (Canva)
 - **Perplexity AI** (Perplexity AI)
+- **Grok** (X.AI)
 - **DeepSeek** (DeepSeek)
+- **Poe** (Quora)
 - **Notion AI** (Notion Labs)
+- **Adobe Firefly** (Adobe)
+- **Midjourney** (Midjourney)
 
 ## 📦 Installation
 
@@ -99,6 +102,10 @@ Contributions are welcome! Here's how you can help:
 
 
 ## 📝 Changelog
+
+### v1.1.0 (2025-12-17)
+
+- Added support for Google NotebookLM, Adobe Firefly and Midjourney.
 
 ### v1.0.0 (2025-07-14)
 
