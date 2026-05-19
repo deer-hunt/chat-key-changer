@@ -57,7 +57,7 @@ This extension solves these pain points by reversing the key behavior to match w
    ```bash
    Download ZIP
    or
-   git clone https://github.com/deer-hunt/chat-key-changer.git
+   git clone https://github.com/deerhnt/chat-key-changer.git
    
    cd chat-key-changer
    ```
@@ -96,7 +96,7 @@ The extension uses advanced DOM monitoring techniques to detect input fields acr
 Contributions are welcome! Here's how you can help:
 
 ### Reporting Issues
-- Use the [GitHub Issues](https://github.com/deer-hunt/chat-key-changer/issues) page
+- Use the [GitHub Issues](https://github.com/deerhnt/chat-key-changer/issues) page
 - Include browser version, extension version, and affected site
 - Provide steps to reproduce the issue
 
@@ -130,5 +130,5 @@ If you find this extension helpful:
 
 ## 📧 Contact
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/deer-hunt/chat-key-changer/issues)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/deerhnt/chat-key-changer/issues)
 
